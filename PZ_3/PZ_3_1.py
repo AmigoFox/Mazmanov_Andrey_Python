@@ -1,7 +1,6 @@
 # Проверить истинность высказывания: «Среди трех данных целых чисел есть хотя бы
 #одна пара взаимно противоположных».
-def exercise_one():
-    try:
+try:
      num1=int(input("введи число 1 \n"))
      num2=int(input("введи число 2 \n"))
      num3=int(input("введи число 3 \n"))
@@ -10,7 +9,5 @@ def exercise_one():
         print("Есть повтор")
      else:
         print("Нет повтора")
-    except ValueError:
+except ValueError:
         print("только числа")
-
-exercise_one()
