@@ -8,7 +8,7 @@ try:
     if n <= 0 and float(x):
         raise ValueError
 except ValueError:
-    print("Только числа")
+    print("Только числа n > 0 и число х дробное число")
 else:
     count = 0
     for k in range(n + 1):
