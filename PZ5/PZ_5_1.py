@@ -4,7 +4,7 @@ import random
 def randon_letter():
     letters = []
     for i in range(1, 41):
-        letters.append((i, chr(random.randint(33, 255))))
+        letters.append((i, chr(random.randint(8000, 8255))))
     return letters
 
 all_letters = randon_letter()

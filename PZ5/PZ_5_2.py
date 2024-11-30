@@ -2,22 +2,29 @@
 Составить функцию, которая будет находить на сколько квадратов
 можно разрезать данный прямоугольник,
  если от него каждый раз отрезать квадрат наибольшей площади.'''
-import numbers
+def count_squares(a, b):
+    if not (isinstance(a, int) and isinstance(b, int) and a > 0 and b > 0):
+        return -1
 
-def rec(A, B):
-    print(f"Сторона A: {A}")
-    print(f"Сторона B: {B}")
+    count = 0
+    while a > 0 and b > 0:
+        side = min(a, b)
+        count += 1
+        a = a - side if a >= b else a
+        b = b - side if b >= a else b
+    return count
 
-def get_rectangle_sides():
+while True:
     try:
-        A = int(input('Введите сторону прямоугольника A (натуральное число): '))
-        B = int(input('Введите сторону прямоугольника B (натуральное число): '))
-        if not (isinstance(A, numbers.Integral) and A > 0 and isinstance(B, numbers.Integral) and B > 0):
-            raise ValueError("Введите натуральные числа, больше 0")
-        return A, B
-    except ValueError as e:
-        print(f"Ошибка: {e}")
-        return get_rectangle_sides()  # Recursive call for invalid input
-
-A, B = get_rectangle_sides()
-rec(A, B)
+        a = int(input("Введите длину стороны A: "))
+        b = int(input("Введите длину стороны B: "))
+        if a <= 0 or b <= 0:
+            raise ValueError("Длины сторон должны быть положительными числами.")
+        result = count_squares(a, b)
+        if result == -1:
+            print("Ошибка: Введите положительные целые числа.")
+        else:
+            print(f"Можно вырезать {result} квадратов.")
+            break
+    except ValueError:
+        print("Ошибка: ")
