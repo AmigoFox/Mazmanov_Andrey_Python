@@ -14,7 +14,7 @@ def count_squares(a, b):
 try:
     a = int(input("Введите длину стороны A: "))
     b = int(input("Введите длину стороны B: "))
-    if a <= 0 or b <= 0:
+    if a <= 0 and b <= 0:
         raise ValueError("Ошибка: Только целые, положительные числа!")
     result = count_squares(a, b)
     print(f"Можно вырезать {result} квадратов.")
