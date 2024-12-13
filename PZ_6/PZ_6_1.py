@@ -13,21 +13,20 @@ def arithmetic_mean(numN, numK, numL):
     for i in range(numN):
         elements.append(int(input(f"Введи число {i+int(1)} \n")))
 
-    for j in elements:
-        if elements[linit1] < j < elements[linit2]:
-            summ += elements[j]
-            count+= int(1)
+    for j in range(linit1, linit2 + 1):
+        summ += elements[j]
+        count += int(1)
 
-    return int(summ / count)
+    return float(summ / count)
 
 
 try:
     N = int(input("Введи N размер списка:\n"))
     K = int(input("Введи K (1 < K < L < N):\n"))
     L = int(input("Введи L (1 < K < L < N):\n"))
-    if  int(1) < K < L < N:
+    if  not (int(1) < K < L < N):
         raise ValueError("Условие 1 < K < L < N не выполняется")
     result = arithmetic_mean(N, K, L)
-    print(result)
+    print(f"Результат --, {result}")
 except ValueError as va:
     print(va)
